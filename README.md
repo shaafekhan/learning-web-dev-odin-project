@@ -5,4 +5,6 @@ This repository contains the HTML code for achieving the recipe project assignme
 
 A basic recipe website is built in this project.
 
+To view this website, please visit:  https://shaafekhan.github.io/odin-recipes/
+
 For more information please visit: https://www.theodinproject.com/lessons/foundations-recipes
