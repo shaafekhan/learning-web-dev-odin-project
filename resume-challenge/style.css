@@ -1,8 +1,6 @@
 .Heading {
-    border: 2px solid rebeccapurple;
     font-family: Arial, Helvetica, sans-serif;
     margin: 2px;
-    padding: 5px;
     box-sizing: border-box;
     inline-size: max-content;
     block-size: max-content;
@@ -10,5 +8,16 @@
 }
 
 .title {
+    margin: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.content-sub-title {
+    margin: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.content-body {
+    margin: 8px;
     font-family: Arial, Helvetica, sans-serif;
 }
