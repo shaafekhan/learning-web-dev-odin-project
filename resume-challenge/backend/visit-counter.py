@@ -1,28 +1,17 @@
 import boto3
+import os
+def lambda_handler(event: any, context: any):
+    visit_count = 0
+    dynamodb = boto3.resource("dynamodb")
+    table_name = os.environ["TABLE_NAME"]
+    table = dynamodb.Table(table_name)
 
 
-# Get the service resource.
-dynamodb = boto3.resource('dynamodb')
+    response = table.get_item(Key={"id": 1})
+    if "Item" in response:
+        visit_count = response["Item"]["count"]
+    
+    visit_count += 1
 
-# Instantiate a table resource object without actually
-# creating a DynamoDB table. Note that the attributes of this table
-# are lazy-loaded: a request is not made nor are the attribute
-# values populated until the attributes
-# on the table resource are accessed or its load() method is called.
-table = dynamodb.Table('counter-service')
-
-# Print out some data about the table.
-# This will cause a request to be made to DynamoDB and its attribute
-# values will be set based on the response.
-print(table.creation_date_time)
-
-
-
-
-response = table.get_item(
-    Key={
-        'id': '1'
-    }
-)
-item = response['Item']
-print(item)
+    table.put_item(Item={"id": 1, "count": visit_count})
+    
